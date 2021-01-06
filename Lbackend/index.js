@@ -10,6 +10,7 @@ const user = require('./src/model/user');
 var app = new express();
 app.use(cors());
 app.use(bodyparser.json())
+const port = process.env.PORT || 3000;
 username="admin"
 password="1234"
 
@@ -171,7 +172,7 @@ app.put('/updatea',(req,res)=>{
   })
  
  
-app.listen(3000,function(){
+app.listen(port,function(){
 
     console.log('listening to port 3000');
 })
