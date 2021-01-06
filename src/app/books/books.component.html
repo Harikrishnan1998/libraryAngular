@@ -1,0 +1,26 @@
+<div class="card">
+    <div class="card-header">
+       <h1> {{title}}
+       </h1>    </div>
+    <div class='card-body'>
+        
+                    <span *ngFor='let book of books'>
+                        <img [src]='book.imageUrl' 
+                        
+                            [style.width.px] = 'imageWidth'
+                            [style.margin.px] = 'imageMargin'>
+                            
+                            &bull; {{book.name}}
+                            <br>
+                            &bull; {{book.author}}
+                            <br>
+                            &bull; {{book.genre}}
+                        
+                        <button class="btn btn-primary btn-sm" *ngIf="_auth.loggedIn()" (click)="editBook(book)" style="margin-left: 20px;"> Edit</button>
+                        <button class="btn btn-warning btn-sm" *ngIf="_auth.loggedIn()" (click)="deleteBook(book)" style="margin-left: 20px;"> Delete</button>
+                         <hr>       <br>
+                    </span>
+                
+        </div> 
+    </div>
+

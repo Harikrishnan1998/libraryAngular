@@ -1,0 +1,47 @@
+<div class="card-header">
+    <h3>Sign Up</h3>
+  </div>
+  
+  <div class="card-body">
+    <form #form="ngForm" (ngSubmit)=form.valid&&onSubmit()>
+      <div class="form-group">
+        <label>First Name</label>&nbsp;
+        <input type="text" name="firstname" required #firstname="ngModel" [(ngModel)]="data.firstname"><br>
+        <label class="text-danger" *ngIf="(form.submitted||form.touched)&&firstname.errors?.required">firstname reqd</label>
+      </div>
+      <div class="form-group">
+        <label>Email Id</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="email"  required #email="ngModel" [(ngModel)]="data.email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"><br>
+        <label class="text-danger" *ngIf="(form.submitted||form.touched)&&email.errors?.required">email id required</label>
+        <label class="text-danger" *ngIf="(form.submitted||form.touched)&&email.errors?.pattern">invalid</label>
+    
+      </div>
+      <br>
+      <div class="form-group">
+        <label>password</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="password" name="password" required #password="ngModel" [(ngModel)]="data.password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/>
+<br>        <label class="text-danger" *ngIf="(form.submitted||form.touched)&&password.errors?.required">password required</label>
+        <label class="text-danger" *ngIf="(form.submitted||form.touched)&&password.errors?.pattern">invalid password</label>
+      
+      <br>
+      <br>
+      
+        <label>Confirm password</label>
+        <input type="password" name="cpassword" required #cpassword="ngModel" [(ngModel)]="data.cpassword"/> <br>
+        <label class="text-danger" *ngIf="(form.submitted||form.touched)&&cpassword.errors?.required">re type password</label><br>
+        <label class="text-danger" *ngIf="(form.submitted||form.touched)&&password.value==cpassword.value">password match</label>
+        <label class="text-danger" *ngIf="(form.submitted||form.touched)&&password.value!==cpassword.value">password mismatch</label>
+      </div>
+  
+    
+      <div class="form-group">
+        <label>Phone</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="phone" required #phone="ngModel" [(ngModel)]="data.phone" pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"><br>
+        <label class="text-danger" *ngIf="(form.submitted||form.touched)&&phone.errors?.required">phone no  required</label>
+        <label class="text-danger" *ngIf="(form.submitted||form.touched)&&phone.errors?.pattern">invalid phone number</label>
+      </div>
+      <br>
+      <button class="btn-btn-primary" >Sign Up</button>
+    </form>
+  </div>
+
