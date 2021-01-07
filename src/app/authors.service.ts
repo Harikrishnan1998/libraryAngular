@@ -16,11 +16,11 @@ export class AuthorsService {
 
   constructor(private http:HttpClient) { }
   getAuthor(id:any){
-    return this.http.get("http://localhost:3000/"+id);
+    return this.http.get("http://localhost:3000/authors/"+id);
   }
 
   getAuthors(){
-    return this.http.get("http://localhost:3000/Authors")
+    return this.http.get("http://localhost:3000/authors")
   }
   newAuthor(item: AuthorModel){
     return this.http.post("http://localhost:3000/inserta",{"author":item})
